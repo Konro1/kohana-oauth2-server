@@ -1,5 +1,5 @@
 {
-	"name": "konro1/kohana-oauth2-server",
+	"name": "Konro1/kohana-oauth2-server",
 	"type": "kohana-module",
 	"description": "Kohana 3 helper module for oauth2-server-php",
 	"homepage": "https://github.com/Konro1/kohana-oauth2-server",
