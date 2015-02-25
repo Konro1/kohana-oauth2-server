@@ -6,7 +6,7 @@
 	"license": "MIT",
 	"support": {
 		"issues": "https://github.com/Konro1/kohana-oauth2-server/issues",
-		"source": "https://github.com/Konro1/kohana-oauth2-server"
+		"source": "https://github.com/Konro1/kohana-oauth2-server/"
 	},
 	"require": {
 		"php": ">=5.3.3",
