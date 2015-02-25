@@ -1,0 +1,17 @@
+{
+	"name": "siloor/kohana-oauth2-server",
+	"type": "kohana-module",
+	"description": "Kohana 3 helper module for oauth2-server-php",
+	"homepage": "https://github.com/siloor/kohana-oauth2-server",
+	"license": "MIT",
+	"support": {
+		"issues": "https://github.com/siloor/kohana-oauth2-server/issues",
+		"source": "https://github.com/siloor/kohana-oauth2-server"
+	},
+	"require": {
+		"php": ">=5.3.3",
+		"kohana/core": "~3.0",
+		"composer/installers": "~1.0"
+	}
+}
+
