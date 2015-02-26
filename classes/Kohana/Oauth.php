@@ -2,32 +2,32 @@
 
 abstract class Kohana_Oauth
 {
-	
+
 	protected static $storage;
-	
+
 	protected static $instance = NULL;
-	
+
 	public static $request;
-	
+
 	public static $config;
-	
+
 	public static function instance()
 	{
 		if (self::$instance === NULL)
 		{
 			self::$config = Kohana::$config->load('oauth');
-			
+
 			self::$storage = new Kohana_Oauth_Database();
-			
+
 			$grant_types = array();
-			
+
 			$valid_grant_types = array(
-				'user_credentials' => 'OAuth2_GrantType_UserCredentials',
-				'client_credentials' => 'OAuth2_GrantType_ClientCredentials',
-				'refresh_token' => 'OAuth2_GrantType_RefreshToken',
-				'authorization_code' => 'OAuth2_GrantType_AuthorizationCode',
+				'user_credentials' => 'OAuth2\GrantType\UserCredentials',
+				'client_credentials' => 'OAuth2\GrantType\ClientCredentials',
+				'refresh_token' => 'OAuth2\GrantType\RefreshToken',
+				'authorization_code' => 'OAuth2\GrantType\AuthorizationCode',
 			);
-			
+
 			foreach ($valid_grant_types as $grant_type => $handler)
 			{
 				if (in_array($grant_type, self::$config->grant_types))
@@ -35,21 +35,21 @@ abstract class Kohana_Oauth
 					array_push($grant_types, new $handler(self::$storage));
 				}
 			}
-			
-			self::$instance = new OAuth2_Server(self::$storage, self::$config->server, $grant_types);
-			
-			self::$request = OAuth2_Request::createFromGlobals();
+
+			self::$instance = new OAuth2\Server(self::$storage, self::$config->server, $grant_types);
+
+			self::$request = OAuth2\Request::createFromGlobals();
 		}
-		
+
 		return self::$instance;
 	}
-	
+
 	public static function set_oauth_response(&$response, $oauth_response)
 	{
 		$response->protocol('HTTP/' . $oauth_response->version);
-		
+
 		$response->status($oauth_response->getStatusCode());
-		
+
 		if ($oauth_response->getHttpHeaders())
 		{
 			foreach ($oauth_response->getHttpHeaders() as $header_key => $header_value)
@@ -57,8 +57,8 @@ abstract class Kohana_Oauth
 				$response->headers($header_key, $header_value);
 			}
 		}
-		
+
 		$response->body($oauth_response->getResponseBody());
 	}
-	
+
 }
