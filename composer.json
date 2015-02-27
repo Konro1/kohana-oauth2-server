@@ -14,7 +14,5 @@
 		"composer/installers": "~1.0",
 		"bshaffer/oauth2-server-php": "1.6"
 	},
-	"config": {
-		"vendor-dir": "modules/kohana-oauth2-server/vendor/"
-	}
+	"target-dir":"modules/kohana-oauth2-server/vendor/"
 }
