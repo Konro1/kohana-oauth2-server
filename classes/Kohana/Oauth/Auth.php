@@ -41,7 +41,10 @@ class Kohana_Oauth_Auth
 
 	public function get_user()
 	{
-		return $this->user->as_array();
+		if ($this->logged_in())
+		{
+			return $this->user->as_array();
+		}
 	}
 
 	public function force_login($user_email)
