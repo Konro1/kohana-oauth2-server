@@ -31,7 +31,7 @@ class Kohana_Oauth_Auth
 
 	public function logged_in()
 	{
-		if ($this->user->loaded())
+		if ($this->user)
 		{
 			return true;
 		}
