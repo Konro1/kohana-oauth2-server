@@ -43,7 +43,7 @@ class Kohana_Oauth_Auth
 	{
 		if ($this->logged_in())
 		{
-			return $this->user->as_array();
+			return $this->user;
 		}
 	}
 
